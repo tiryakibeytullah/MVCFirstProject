@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <style>
+        body {
+            background-image: url('../../Image/pexels-efdal-yildiz-917494.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            @Html.ActionLink("Home Page", "HomePage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                    </nav>
+                </header>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+                    <footer style="text-align:center">
+                        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+</body>
+</html>

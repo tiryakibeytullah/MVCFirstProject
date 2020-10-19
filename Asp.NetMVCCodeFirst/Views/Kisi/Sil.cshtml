@@ -1,0 +1,53 @@
+﻿@model Asp.NetMVCCodeFirst.Models.Kisiler
+@{
+    ViewBag.Title = "Sil";
+}
+
+    <h3 style="text-align:center" margin-bottom:10px; margin-top:10px;>Kisi Sil</h3>
+    <hr />
+    <p>
+        Aşağıdaki kişi kaydını silmek istediğinizden emin misiniz ?
+    </p>
+
+
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtAd">Name : </span>
+        </div>
+        @Html.DisplayFor(x => x.Ad, new { @class = "form-control col-12", aria_describedby = " txtAd" })
+    </div>
+
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtSoyad">Surname : </span>
+        </div>
+        @Html.DisplayFor(x => x.Soyad, new { @class = "form-control col-12", aria_describedby = "txtSoyad" })
+    </div>
+
+    <div class="form-group">
+        <div class="input-group-prepend" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtYas">Age : </span>
+        </div>
+        @Html.DisplayFor(x => x.Yas, new { type = "text", @class = "form-control col-12", aria_label = "Username", aria_describedby = "txtYas" })
+    </div>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x=>x.Id)
+    
+    <div class="input-group" style="margin-bottom:5px;">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </div> 
+}
+    <div class="input-group mb-2">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+
+
+
+

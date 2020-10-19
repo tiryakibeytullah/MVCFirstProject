@@ -1,0 +1,47 @@
+﻿@model Asp.NetMVCCodeFirst.Models.Kisiler
+@{
+    ViewBag.Title = "Duzenle";
+}
+
+<h3 style="text-align:center" margin-bottom:10px; margin-top:10px;>Kisi Düzenle</h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtAd">Name : </span>
+        </div>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control col-12", placeholder = "Name", aria_describedby = " txtAd" })
+    </div>
+
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtSoyad">Surname : </span>
+        </div>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control col-12", placeholder = "Username", aria_describedby = "txtSoyad" })
+    </div>
+
+    <div class="form-group">
+        <div class="input-group-prepend" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtYas">Age : </span>
+        </div>
+        @Html.TextBoxFor(x => x.Yas, new { type = "text", @class = "form-control col-12", placeholder = "Age", aria_label = "Username", aria_describedby = "txtYas" })
+    </div>
+
+    <div class="input-group" style="margin-bottom:5px;">
+        <input type="submit" value="Edit" class="btn btn-success" />
+    </div>
+
+    <div class="input-group mb-2">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+
+
+}
+

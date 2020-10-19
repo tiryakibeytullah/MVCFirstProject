@@ -1,0 +1,40 @@
+﻿@model Asp.NetMVCCodeFirst.Models.Adresler
+@{
+    ViewBag.Title = "YeniAdres";
+}
+
+<h3 style="text-align:center" margin-bottom:10px; margin-top:10px;>Yeni Adres</h3>
+<hr />
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="txtAdres">Address : </span>
+        </div>
+        @Html.TextAreaFor(x => x.AdresTanim, new { @class = "form-control col-12", placeholder = "Address", aria_describedby = "txtAdres", cols="30", rows="10" })
+    </div>
+
+    <div class="form-group">
+        <div class="input-group-append" style="margin-bottom:5px;">
+            <span class="input-group-text" id="ddlKisi">Person : </span>
+        </div>
+        @Html.DropDownListFor(x => x.Kisi.Id, (List<SelectListItem>)ViewBag.kisiler, new { @class = "form-control col-12", aria_describedby = "ddlKisi" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+
+    <div class="input-group mb-2">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+    </div>
+}
+
+
+
